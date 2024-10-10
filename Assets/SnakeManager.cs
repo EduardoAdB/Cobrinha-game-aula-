@@ -1,5 +1,7 @@
  using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SnakeManager : MonoBehaviour
@@ -11,12 +13,15 @@ public class SnakeManager : MonoBehaviour
     Vector2 direction = Vector3.up;
     Vector2 snakeIndex;
 
-    List<Transform> food = new List<Transform>();
+    
+    
+    
     private void Update()
     {
         Movimento();
         ChangeDirection();
-
+        Comer();
+        CheckBodyCollision();
     }
 
     void Movimento()
@@ -69,22 +74,30 @@ public class SnakeManager : MonoBehaviour
         }
         body.Add(Instantiate(bodyPrefab, position, Quaternion.identity).transform);
     }
-
     void Comer()
     {
-        for (int i = 0; i < food.Count; i++)
+        if (paredemanage.instance.fruta.transform.position == transform.position )
         {
-            Vector2 foodIndex = food[i].position / paredemanage.instance.tCelula;
-            if (Mathf.Abs(foodIndex.x - snakeIndex.x) < 0.00001f && Mathf.Abs(foodIndex.y - snakeIndex.y) < 0.00001f)
+            Debug.Log("colidiu");
+            Destroy(paredemanage.instance.fruta.gameObject);
+            ptsetela.instance.pontos++;
+            Corpo();
+            paredemanage.instance.Frutas();
+            
+        }
+    }
+    void CheckBodyCollision()
+    {
+        if (body.Count < 3) return;
+
+        for (int i = 0; i < body.Count; ++i)
+        {
+            Vector2 index = body[i].position / paredemanage.instance.tCelula;
+            if (Mathf.Abs(index.x - snakeIndex.x) < 0.00001f && Mathf.Abs(index.y - snakeIndex.y) < 0.00001f)
             {
-                Destroy(food[i].gameObject);
-                food.Remove(food[i]);
-                Corpo();
-                ptsetela.instance.pontos++;
-                ptsetela.instance.ponto.text = "Pontuação: " + ptsetela.instance.pontos.ToString();
-
+                ptsetela.instance.GameOver();
+                break;
             }
-
         }
     }
 }
