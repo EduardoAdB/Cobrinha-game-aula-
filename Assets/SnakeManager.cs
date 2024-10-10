@@ -12,6 +12,8 @@ public class SnakeManager : MonoBehaviour
     Vector2 snakeIndex;
     private void Update()
     {
+        Movimento();
+        ChangeDirection();
 
     }
 
@@ -33,4 +35,26 @@ public class SnakeManager : MonoBehaviour
 
         }
     }
+    void ChangeDirection()
+    {
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (input.y == -1)
+        {
+            direction = Vector2.down;
+        }
+        else if (input.y == 1)
+        {
+            direction = Vector2.up;
+        }
+        else if (input.x == -1)
+        {
+            direction = Vector2.left;
+        }
+        else if (input.x == 1)
+        {
+            direction = Vector2.right;
+        }
+    }
+
 }
