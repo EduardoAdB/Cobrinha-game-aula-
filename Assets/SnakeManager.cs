@@ -10,6 +10,8 @@ public class SnakeManager : MonoBehaviour
     float moveTime = 0;
     Vector2 direction = Vector3.up;
     Vector2 snakeIndex;
+
+    List<Transform> food = new List<Transform>();
     private void Update()
     {
         Movimento();
@@ -57,4 +59,32 @@ public class SnakeManager : MonoBehaviour
         }
     }
 
+    void Corpo()
+    {
+        Vector2 position = transform.position;
+
+        if (body.Count != 0)
+        {
+            position = body[body.Count - 1].position;
+        }
+        body.Add(Instantiate(bodyPrefab, position, Quaternion.identity).transform);
+    }
+
+    void Comer()
+    {
+        for (int i = 0; i < food.Count; i++)
+        {
+            Vector2 foodIndex = food[i].position / paredemanage.instance.tCelula;
+            if (Mathf.Abs(foodIndex.x - snakeIndex.x) < 0.00001f && Mathf.Abs(foodIndex.y - snakeIndex.y) < 0.00001f)
+            {
+                Destroy(food[i].gameObject);
+                food.Remove(food[i]);
+                Corpo();
+                ptsetela.instance.pontos++;
+                ptsetela.instance.ponto.text = "Pontuação: " + ptsetela.instance.pontos.ToString();
+
+            }
+
+        }
+    }
 }
