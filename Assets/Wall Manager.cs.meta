@@ -3,7 +3,10 @@ guid: daa3b38646416cf47b411ebd1ba6dca8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wall: {fileID: 5104607338932188433, guid: 42764a45a282b244b852251406624cca, type: 3}
+  - fruit: {fileID: 2698717938973997806, guid: a453ba89f1e369a489820f1fba332697, type: 3}
+  - fruta: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
