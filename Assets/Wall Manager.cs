@@ -5,7 +5,7 @@ using UnityEngine;
 public class wallManager : MonoBehaviour
 {
     #region singleton
-    public static wallManager instance;
+     static public wallManager instance;
 
     #endregion
 
@@ -36,15 +36,15 @@ public class wallManager : MonoBehaviour
 
     void GerarMapa()
     {
-        for (int A = 0; A < colunas; A++)
+        for (int L = 0; L < linhas; L++) // Itera sobre as linhas
         {
-            for (int L = 0; L < linhas; L++)
+            for (int A = 0; A < colunas; A++) // Itera sobre as colunas
             {
-                Instantiate(wall, new Vector2(L * tCelula, A * tCelula), Quaternion.identity);
-
+                Instantiate(wall, new Vector2(A * tCelula, L * tCelula), Quaternion.identity);
             }
         }
-        Vector3 centroMatriz = new Vector3((linhas - 1) * tCelula / 2, (colunas - 1) * tCelula / 2, -dCamera);
+
+        Vector3 centroMatriz = new Vector3((colunas - 1) * tCelula / 2, (linhas - 1) * tCelula / 2, -dCamera);
         Camera.main.transform.position = centroMatriz;
         Camera.main.orthographicSize = Mathf.Max(linhas, colunas) * tCelula / 2;
     }
