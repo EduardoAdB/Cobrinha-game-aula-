@@ -11,7 +11,6 @@ public class SnakeManager : MonoBehaviour
     float moveTime = 0;
     Vector2 direction = Vector3.up;
     Vector2 snakeIndex;
-    private bool isGameActive = false; // O jogo começa inativo
 
     void Awake()
     {
@@ -19,31 +18,16 @@ public class SnakeManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (isGameActive) // Só atualiza se o jogo estiver ativo
+    {        
+        if (ptsetela.instance.jogoIniciado == true)
         {
             Movimento();
             ChangeDirection();
             Comer();
             CheckBodyCollision();
             Teleporte();
-        }
+        }  
     }
-
-    public void StartGame()
-    {
-        // Ativa o jogo e reseta o estado inicial
-        isGameActive = true;
-        ResetSnake();
-        Time.timeScale = 1f; // Reinicia o tempo de jogo se estiver pausado
-    }
-
-    public void StopGame()
-    {
-        isGameActive = false; // Para o jogo
-        Time.timeScale = 0f; // Pausa o tempo de jogo
-    }
-
     void Movimento()
     {
         if (Time.time > moveTime && enabled == true)
@@ -119,12 +103,11 @@ public class SnakeManager : MonoBehaviour
             {
                 Debug.Log("Game Over! A cobra colidiu com o corpo.");
 
-                // Parando o jogo
-                StopGame();
-
+                // Parando o jogo    
                 // Exibe a tela de game over ou retorna para o menu principal
                 ptsetela.instance.Pontuacao(); // Mostra a pontuação
-                return;
+                ptsetela.instance.jogoIniciado = false;
+                ptsetela.instance.painelFinal.SetActive(true);
             }
         }
     }
@@ -164,15 +147,17 @@ public class SnakeManager : MonoBehaviour
                                          Mathf.Round(pos.y / wallManager.instance.tCelula) * wallManager.instance.tCelula);
     }
 
-    // Reseta o estado da cobra ao iniciar o jogo novamente
-    void ResetSnake()
-    {
-        transform.position = Vector3.zero;
-        direction = Vector2.up;
-        foreach (Transform segment in body)
-        {
-            Destroy(segment.gameObject);
-        }
-        body.Clear();
+    public void ZerarCobra()
+    {       
+            // Itera por todos os segmentos do corpo e destrói cada um
+            foreach (Transform segment in body)
+            {
+                Destroy(segment.gameObject);
+            }
+
+            // Limpa a lista para remover as referências aos segmentos que foram destruídos
+            body.Clear();     
+            transform.position = new Vector2 (0, 0);
+            direction = Vector2.up;
     }
 }
