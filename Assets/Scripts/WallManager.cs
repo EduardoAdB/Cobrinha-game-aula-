@@ -56,13 +56,17 @@ public class wallManager : MonoBehaviour
         // Calcula a maior dimensão do mapa para definir o tamanho da câmera
         float maiorDimensao = Mathf.Max(linhas, colunas);
 
-        // Ajusta o tamanho ortográfico da câmera para que ela cubra a maior dimensão
-        Camera.main.orthographicSize = (maiorDimensao * tCelula) / 2;
+        // Define uma margem extra para afastar a câmera
+        float margem = 1.5f; // Ajuste este valor para mais ou menos afastamento
+
+        // Ajusta o tamanho ortográfico da câmera para que ela cubra a maior dimensão + margem
+        Camera.main.orthographicSize = (maiorDimensao * tCelula) / 2 + margem;
 
         // Centraliza a câmera no centro do mapa
         Vector3 centroMatriz = new Vector3((colunas - 1) * tCelula / 2, (linhas - 1) * tCelula / 2, -dCamera);
         Camera.main.transform.position = centroMatriz;
     }
+
 
     public void Frutas()
     {
