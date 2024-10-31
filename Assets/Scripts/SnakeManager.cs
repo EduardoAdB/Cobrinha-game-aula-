@@ -160,4 +160,8 @@ public class SnakeManager : MonoBehaviour
             transform.position = new Vector2 (0, 0);
             direction = Vector2.up;
     }
+    public void Velocidade(string _speed)
+    {
+        speed = int.Parse(_speed);
+    }
 }

@@ -305,10 +305,10 @@ RectTransform:
   - {fileID: 1546742682}
   m_Father: {fileID: 57316952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 383, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.665, y: 0.42333335}
+  m_AnchorMax: {x: 0.95375, y: 0.5}
+  m_AnchoredPosition: {x: -0.5, y: 0}
+  m_SizeDelta: {x: -71, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200047644
 MonoBehaviour:
@@ -427,7 +427,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 608392861}
+        m_TargetAssemblyTypeName: wallManager, Assembly-CSharp
+        m_MethodName: Colunas
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1169,7 +1181,6 @@ MonoBehaviour:
   linhas: 10
   colunas: 15
   tCelula: 1.1
-  limitador: 1
 --- !u!4 &608392862
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,58 +1540,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697852165}
   m_CullTransparentMesh: 1
---- !u!1 &720283943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 720283945}
-  - component: {fileID: 720283944}
-  m_Layer: 0
-  m_Name: SpawnManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &720283944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720283943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57dbfc000f19a7488bc977a81fd9d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall: {fileID: 8797043201303894205, guid: c9578c4f55830d2469509c5f342dd7be, type: 3}
-  fruit: {fileID: 8797043201303894205, guid: d47c78bfb24cb0545968a2f4dcd4780e, type: 3}
-  fruta: {fileID: 0}
-  quantidadeFrutas: 0
-  linhas: 10
-  colunas: 15
-  tCelula: 1.1
-  limitador: 1
---- !u!4 &720283945
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720283943}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 602.32886, y: 281.0354, z: -3.639669}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888776665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,10 +1934,10 @@ RectTransform:
   - {fileID: 260915761}
   m_Father: {fileID: 57316952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.312}
-  m_AnchorMax: {x: 0.5, y: 0.312}
-  m_AnchoredPosition: {x: 0, y: -3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.40125, y: 0.28366667}
+  m_AnchorMax: {x: 0.6, y: 0.3286667}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: 1, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002685891
 MonoBehaviour:
@@ -2109,10 +2068,10 @@ RectTransform:
   - {fileID: 1757652222}
   m_Father: {fileID: 57316952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -432, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.04125, y: 0.42333335}
+  m_AnchorMax: {x: 0.35250002, y: 0.5}
+  m_AnchoredPosition: {x: -0.5, y: 0}
+  m_SizeDelta: {x: -89, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105730041
 MonoBehaviour:
@@ -2231,7 +2190,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 608392861}
+        m_TargetAssemblyTypeName: wallManager, Assembly-CSharp
+        m_MethodName: Linhas
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2383,13 +2354,13 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494195245}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 906597177}
+        m_TargetAssemblyTypeName: SnakeManager, Assembly-CSharp
+        m_MethodName: Velocidade
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2447,10 +2418,10 @@ RectTransform:
   - {fileID: 1496100897}
   m_Father: {fileID: 57316952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 95}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.31625003, y: 0.61333334}
+  m_AnchorMax: {x: 0.68500006, y: 0.70500004}
+  m_AnchoredPosition: {x: -0.5, y: -0.5}
+  m_SizeDelta: {x: -135, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130095641
 MonoBehaviour:
@@ -2561,7 +2532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -3700,5 +3671,4 @@ SceneRoots:
   - {fileID: 1384357733}
   - {fileID: 84699583}
   - {fileID: 2026485456}
-  - {fileID: 720283945}
   - {fileID: 494195247}

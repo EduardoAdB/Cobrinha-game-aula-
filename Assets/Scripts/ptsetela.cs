@@ -61,21 +61,16 @@ public class ptsetela : MonoBehaviour
     }
 
     public void IniciarJogo()
-    {
-        wallManager.instance.linhas = int.Parse(inputLinha.text);
-        wallManager.instance.colunas = int.Parse(inputColuna.text);
-        SnakeManager.instance.speed = float.Parse(inputVelocidade.text);
-
-        Debug.Log(wallManager.instance.linhas);
-        Debug.Log(wallManager.instance.colunas);
-        Debug.Log(SnakeManager.instance.speed);
-
+    {        
         panel.SetActive(false);
         painelFinal.SetActive(false);
         pontos = 0;
         SnakeManager.instance.ZerarCobra();
         wallManager.instance.ZerarMapa();
         jogoIniciado = true;
+        wallManager.instance.Frutas();
+        wallManager.instance.AjustarCamera();
+        wallManager.instance.GerarMapa();
     }
     public void MenuInicial()
     {
@@ -84,7 +79,6 @@ public class ptsetela : MonoBehaviour
         panel.SetActive(true);
         painelFinal.SetActive(false);
         SnakeManager.instance.ZerarCobra();
-        wallManager.instance.ZerarMapa();
-        wallManager.instance.limitador = true;
+        wallManager.instance.ZerarMapa();        
     }
 }
